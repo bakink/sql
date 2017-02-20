@@ -1,3 +1,7 @@
+REM NOTE - This script is from John Hallas
+REM https://jhdba.wordpress.com/2012/03/06/the-mother-of-all-asm-scripts/
+REM I modified it slightly to have bigger COL values as the original values were too small for the large database (DW) I was running against
+
 REM ASM views:
 REM VIEW            |ASM INSTANCE                                     |DB INSTANCE
 REM ----------------------------------------------------------------------------------------------------------
