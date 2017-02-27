@@ -1,10 +1,21 @@
+REM **********************************************************************************
+REM
+REM File:    get_ae_sql_response_time_histogram.sql
+REM Purpose: Gets a count of SQL executions by elapsed time buckets (histogram)
+REM
+REM Change History
+REM
+REM Date         Author             Description
+REM ===========  =================  ================================================
+REM              Jeff Moss          Initial Version
+REM
+REM **********************************************************************************
 WITH min_max_snap AS
 (
 SELECT MIN(snap_id) min_snap_id
 ,      MAX(snap_id) max_snap_id
 FROM   dba_hist_snapshot
-WHERE  TRUNC(begin_interval_time) BETWEEN TO_DATE('01-NOV-2016','DD-MON-YYYY') AND TO_DATE('01-DEC-2016','DD-MON-YYYY')
---WHERE  TRUNC(begin_interval_time) > TRUNC(ADD_MONTHS(SYSDATE,-1))
+WHERE  TRUNC(begin_interval_time) > TRUNC(ADD_MONTHS(SYSDATE,-1))
 )
 , all_rows AS
 (
